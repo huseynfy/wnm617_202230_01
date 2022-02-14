@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --gray-color: #8A8A8A;
+}
+body{
+    font-family: sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+.text-center{
+    text-align: center;
+}
+.main-image{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+.ul-header{
+    display: flex;
+    margin: 32px 144px;
+}
+.ul-header > li {
+    list-style-type: none;
+    padding-left: 32px;
+}
+.ul-header > li > a{
+    color: #000;
+    text-decoration-line: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+.ul-header > li > a:hover{
+    color: var(--gray-color);
+    transition: all 0.4s;
+}
+.hi-text{
+    margin: 196px 32px 0;
+    font-size: 64px;
+}
+.hi-description{
+    font-size: 44px;
+    margin: 32px;
+    padding-right: 15%;
+}
+.section-header{
+    font-size: 32px;
+    margin-top: 196px;
+}
+.about-text{
+    color: var(--gray-color);
+    padding: 32px 32%;
+    font-size: 24px;
+    line-height: 40px;
+}
+.line{
+    margin: 80px 32px ;
+    border: 1px solid #000;
+    width: 10%;
+}
+.work-image{
+    margin-top: 64px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s;
+}
+.work-image:hover{
+    transform: scale(1.01);
+}
+.contact-question{
+    font-size: 24px;
+    margin-top: 96px;
+    font-weight: 500;
+}
+.btn-contact{
+    margin-top: 32px;
+    width: 240px;
+    height: 50px;
+    background-color: #000;
+    border: none;
+    border-radius: 5px;
+    transition: all 1s;
+    cursor: pointer;
+}
+.btn-contact:hover{
+    background-color: #fff;
+    border: 3px solid #000;
+}
+.btn-contact:hover a{
+    color: #000;
+}
+.btn-contact > a{
+    color: #fff;
+    font-size: 22px;
+    text-decoration-line: none;
+    font-weight: 600;
+}
+.social-logos{
+    margin: 64px 0;
+}
+.social-logos > a{
+    padding-left: 32px;
+}
+.social-logos > a:first-child{
+    padding: 0;
+}
+.social-logos > a > img{
+    width: 70px;
+    height: 70px;
+    transition: all 0.4s;
+}
+.social-logos > a > img:hover{
+    transform: scale(1.1);
+}
+
+@media screen and (max-width:900px) {
+    .ul-header{
+        margin: 32px;
+    }
+    .about-text{
+        padding: 32px 20%;
+    }
+}
+@media screen and (max-width:700px) {
+    .ul-header{
+        display: none;
+    }
+    .hi-text{
+        margin: 160px 32px 0;
+        font-size: 44px;
+    }
+    .hi-description{
+        font-size: 28px;
+        margin: 32px;
+        padding-right: 15%;
+    }
+}
+@media screen and (max-width:350px) {
+    .hi-text{
+        font-size: 32px;
+    }
+    .hi-description{
+        font-size: 20px;
+    }
+}
