@@ -21,12 +21,15 @@ html{
     object-fit: cover;
 }
 .ul-header{
-    display: flex;
-    margin: 32px 144px;
+    display: inline-flex;
+    margin: 32px 0;
 }
 .ul-header > li {
     list-style-type: none;
     padding-left: 32px;
+}
+.ul-header > li:first-child {
+    padding: 0;
 }
 .ul-header > li > a{
     color: #000;
