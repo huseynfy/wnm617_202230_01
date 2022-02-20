@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: url(img/pattern1.jpg) ;
+}
+:root{
+    --white-color:#fff;
+    --black-color:#000;
+    --orange-color: #fb8500;
+}
+::selection{
+    background-color: var(--orange-color);
+    color: var(--white-color);
+}
+[role='banner']{
+    background-image: url('img/pattern.jpg');
+    height: 300px;
+}
+[role='banner'] h1{
+    color: var(--white-color);
+    font-size: 48px;
+    text-align: left;
+    padding-top: 104px;
+}
+[role='banner'] h2{
+    color: var(--white-color);
+    font-size: 24px;
+    text-align: left;
+    padding-top: 8px;
+}
+div, aside, header h1,h2{
+    max-width: 1200px;
+    margin: auto;
+}
+div:nth-child(1){
+    max-width: 100vw;
+}
+p{
+    color: var(--white-color);
+    font-size: 24px;
+    padding: 8px 30% 24px 0;
+    text-align: left;
+    line-height: 36px;
+}
+a{
+    color: var(--orange-color);
+    font-size: 24px;
+    text-decoration-line: none;
+    text-transform: uppercase;
+}
+h3{
+    color: var(--orange-color);
+    font-size: 32px;
+    text-align: left;
+    padding: 8px 0;
+}
+#zen-summary{
+    margin-top: 32px;
+}
+[role="navigation"] > ul >li  {
+    list-style-type: none;
+    font-size: 24px;
+    color: var(--white-color);
+}
+[role="navigation"] > ul >li >a {
+    color: var(--white-color);
+    text-transform: capitalize;
+}
+.wrapper{
+    display: inline-flex;
+    justify-content: space-evenly;
+}
+#design-archives, #zen-resources{
+    margin-top: 0;
+    padding: 0 16px;
+}
+#zen-resources ul li{
+    list-style-type: none;
+    font-size: 24px;
+}
+#zen-resources ul li a{
+    color: var(--white-color);
+}
+footer{
+    background: url(img/pattern.jpg);
+    min-width: 100%;
+    height: 100px;
+    margin: 32px;
+    padding: 32px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 50px;
+}
+.zen-validate-html{
+    visibility: hidden;
+}
+.zen-validate-html::before{
+    visibility: visible;
+    width: 40px;
+    height: 40px;
+    background-image: url('img/html-5.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    display: inline-block;
+    content:"";
+}
+.zen-validate-css{
+    visibility: hidden;
+}
+.zen-validate-css::before{
+    visibility: visible;
+    width: 40px;
+    height: 40px;
+    background-image: url('img/css-3.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    display: inline-block;
+    content:"";
+}
+.zen-license{
+    visibility: hidden;
+}
+.zen-license::before{
+    visibility: visible;
+    width: 40px;
+    height: 40px;
+    background-image: url('img/cc.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    display: inline-block;
+    content:"";
+}
+.zen-accessibility{
+    visibility: hidden;
+}
+.zen-accessibility::before{
+    visibility: visible;
+    width: 40px;
+    height: 40px;
+    background-image: url('img/accesibility.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    display: inline-block;
+    content:"";
+}
+.zen-github{
+    visibility: hidden;
+}
+.zen-github::before{
+    visibility: visible;
+    width: 40px;
+    height: 40px;
+    background-image: url('img/github.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    display: inline-block;
+    content:"";
+}
+.design-selection{
+    position: absolute;
+    top: 400px;
+    right: 30px;
+}
+.design-archives{
+    position: absolute;
+    top: 800px;
+    right: 260px;
+}
+.zen-resources{
+    position: absolute;
+    top: 1000px;
+    right: 140px;
+}
