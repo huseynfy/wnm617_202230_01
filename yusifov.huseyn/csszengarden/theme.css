@@ -51,6 +51,7 @@ a{
     font-size: 24px;
     text-decoration-line: none;
     text-transform: uppercase;
+    font-style: italic;
 }
 h3{
     color: var(--orange-color);
@@ -174,4 +175,8 @@ footer{
     position: absolute;
     top: 1000px;
     right: 140px;
+}
+footer a:hover{
+    transform: scale(1.1);
+    transition: all 1s;
 }
