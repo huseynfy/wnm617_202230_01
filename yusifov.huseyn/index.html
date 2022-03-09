@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="lib/js/jquery-2.2.4.min.js"></script>
+    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <title>Locat</title>
+</head>
+<body>
+    <section data-role="page" id="signin-page">
+        <div data-role="main">
+            <h1 class="logo">Logo</h1>
+            <form class="form" id="signin-form">
+           <div class="form-control"> 
+               <label for="signin-username" class="form-label">Username</label>
+               <input type="text" id="signin-username" data-role="none" class="form-input"
+               placeholder="Type your username">
+           </div>
+           <div class="form-control">
+               <label for="signin-password" class="form-label">Password</label>
+               <input type="password" id="signin-password" data-role="none" class="form-input" placeholder="Type your password">
+           </div> 
+           <div class="form-control"> <a href="#recent-page" class="form-button">Submit</a>
+           </div>
+        </form>
+        <p class="signuptext">Don't have an account yet? <a href="#">Create New</a></p>
+        </div>
+    </section>
+    <section data-role="page" id="recent-page">
+        <div data-role="main">
+            <img src="img/map.png" class="image" alt="">
+        </div>
+            <footer data-role="footer">
+                <ul>
+                    <li>
+                        <a href="#recent-page">Recent</a>
+                    </li>
+                    <li>
+                        <a href="#list-page">List</a>
+                    </li>
+                    <li>
+                        <a href="#user-profile-page">Profile</a>
+                    </li>
+                </ul>
+            </footer>
+    </section>
+    <section data-role="page" id="list-page">
+        <header data-role="header">
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#">Add</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            <div class="display-flex flex-justify-around boxdiv">
+                <div class="catbox">Cat 1 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
+                <div class="catbox">Cat 2 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
+                <div class="catbox">Cat 3 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
+                <div class="catbox">Cat 4 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
+                <div class="catbox">Cat 5 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
+                <div class="catbox">Cat 6 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
+            </div>
+        </div>
+        <footer data-role="footer">
+            <ul>
+                <li>
+                    <a href="#recent-page">Recent</a>
+                </li>
+                <li>
+                    <a href="#list-page">List</a>
+                </li>
+                <li>
+                    <a href="#user-profile-page">Profile</a>
+                </li>
+            </ul>
+        </footer>
+    </section>
+    <section data-role="page" id="cat-profile-page">
+        <header data-role="header">
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            <h2>Cat Profile</h2>
+           
+        </div>
+        <footer data-role="footer">
+            <ul>
+                <li>
+                    <a href="#recent-page">Recent</a>
+                </li>
+                <li>
+                    <a href="#list-page">List</a>
+                </li>
+                <li>
+                    <a href="#user-profile-page">Profile</a>
+                </li>
+            </ul>
+        </footer>
+    </section>
+    <section data-role="page" id="user-profile-page">
+        <header data-role="header">
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            <h2>User profile</h2>
+           
+        </div>
+        <footer data-role="footer">
+            <ul>
+                <li>
+                    <a href="#recent-page">Recent</a>
+                </li>
+                <li>
+                    <a href="#list-page">List</a>
+                </li>
+                <li>
+                    <a href="#user-profile-page">Profile</a>
+                </li>
+            </ul>
+        </footer>
+    </section>
+    <section data-role="page" id="edit-profile-page">
+        <div data-role="main">
+            edit user profile
+        </div>
+        <footer data-role="footer">
+            <ul>
+                <li>
+                    <a href="#recent-page">Recent</a>
+                </li>
+                <li>
+                    <a href="#list-page">List</a>
+                </li>
+                <li>
+                    <a href="#user-profile-page">Profile</a>
+                </li>
+            </ul>
+        </footer>
+    </section>
+</body>
+</html>

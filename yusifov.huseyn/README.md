@@ -9,5 +9,6 @@
 
 ## Side Links
 
+- http://huseynfy-001-site5.btempurl.com/aau/wnm617/yusifov.huseyn/profile
 - http://huseynfy-001-site5.btempurl.com/aau/wnm617/yusifov.huseyn/csszengarden
 - http://huseynfy-001-site5.btempurl.com/aau/wnm617/yusifov.huseyn/explorations/Yusifov_m03_Explorations.pdf
