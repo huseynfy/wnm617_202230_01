@@ -5,6 +5,9 @@
 ## Important Links
 
 - http://huseynfy-001-site5.btempurl.com/
+
+## Class Project
+
 - http://huseynfy-001-site5.btempurl.com/aau/wnm617/yusifov.huseyn
 
 ## Side Links
