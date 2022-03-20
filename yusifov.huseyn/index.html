@@ -13,12 +13,21 @@
     <title>Locat</title>
 </head>
 <body>
-    <section data-role="page" id="signin-page">
-        <div data-role="main">
-            <div class="text-center">
-            <img src="img/logo.svg" class="logo text-center" alt="">
+    <section data-role="page" id="welcome-page">
+        <div data-role="main" class="flex-column display-flex">
+            <div class="flex-stretch"></div>
+            <h2 class="welcome-text">Locat is created for you to track your cats</h2>
+            <button data-role="none" class="welcome-button"><a href="#signin-page">Sign In</a></button>
         </div>
-            <form class="form" id="signin-form">
+    </section>
+    <section data-role="page" id="signin-page">
+        <div data-role="main" class="display-flex flex-column">
+            <div class="flex-stretch"></div>
+            <div class="text-center">
+            <img src="img/logo.svg" class="logo" alt="locat-logo">
+        </div>
+        <h2 class="sign-text">Sign In</h2>
+        <form class="form" id="signin-form">
            <div class="form-control"> 
                <label for="signin-username" class="form-label">Username</label>
                <input type="text" id="signin-username" data-role="none" class="form-input"
@@ -29,21 +38,28 @@
                <input type="password" id="signin-password" data-role="none" class="form-input" placeholder="Type your password">
            </div> 
            <div class="form-control"> 
-               <button type="submit" class="form-button">Submit</button>
+               <button type="submit" class="form-button">Sign In</button>
            </div>
         </form>
         <p class="signuptext">Don't have an account yet? <a href="#signup-page">Create New</a></p>
+        <div class="flex-stretch"></div>
         </div>
     </section>
     <section data-role="page" id="signup-page">
         <a href="#" data-rel="back"><img src="img/icons/back.svg" class="back-icon" alt=""></a>
         <div data-role="main">
+            <h2 class="sign-text">Sign Up</h2>
             <form class="form" id="signup-form">
            <div class="form-control"> 
                <label for="signup-username" class="form-label">Username</label>
                <input type="text" id="signup-username" data-role="none" class="form-input"
                placeholder="Enter username">
            </div>
+           <div class="form-control"> 
+            <label for="signup-email" class="form-label">Email</label>
+            <input type="email" id="signup-email" data-role="none" class="form-input"
+            placeholder="Enter email">
+        </div>
            <div class="form-control">
                <label for="signup-password" class="form-label">Password</label>
                <input type="password" id="signup-password" data-role="none" class="form-input" placeholder="Enter password">
@@ -52,71 +68,71 @@
             <label for="signup-confirm-password" class="form-label">Confirm Password</label>
             <input type="password" id="signup-confirm-password" data-role="none" class="form-input" placeholder="Renter password">
         </div> 
-           <div class="form-control"> <a href="#recent-page" class="form-button">Create</a>
+           <div class="form-control"> <a href="#recent-page" class="form-button">Sign Up</a>
            </div>
         </form>
+        <p class="signuptext">Already have one? <a href="#signin-page">Sign In</a></p>
         </div>
     </section>
     <section data-role="page" id="recent-page">
+        <header class="display-flex flex-justify-between header" data-role="none" >
+            <input type="text" id="search" data-role="none" class="search-input"
+            placeholder="Search">
+        </header>
         <div data-role="main">
             <img src="img/map.png" class="image" alt="map-image">
+            <div class="add-button"><a href="#addnew-page">+</a></div>
         </div>
         <footer data-role="footer">
             <ul>
                 <li>
-                    <a href="#recent-page"><img src="img/icons/map.svg" class="icon-buttons" alt=""></a>
+                    <a href="#recent-page"><img src="img/icons/map.svg" class="icon-buttons" alt=""><span class="menu-text">Map</span></a>
                 </li>
                 <li>
-                    <a href="#list-page"><img src="img/icons/home.svg" class="icon-buttons" alt=""></a>
+                    <a href="#list-page"><img src="img/icons/home.svg" class="icon-buttons" alt=""><span class="menu-text">Home</span></a>
                 </li>
                 <li>
-                    <a href="#user-profile-page"><img src="img/icons/user.svg" class="icon-buttons" alt=""></a>
+                    <a href="#user-profile-page"><img src="img/icons/user.svg" class="icon-buttons" alt=""><span class="menu-text">Profile</span></a>
                 </li>
             </ul>
         </footer>
     </section>
     <section data-role="page" id="list-page">
-        <a href="#" data-rel="back"><img src="img/icons/back.svg" class="back-icon" alt=""></a>
         <div data-role="main" class="overscroll">
-            <h1 class="text-center">Cats</h1>
+            <h2 class="text-center">List of Cats</h2>
             <div class="display-flex flex-justify-around boxdiv">
-                <div class="catbox">Cat 1 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
-                <div class="catbox">Cat 2 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
-                <div class="catbox">Cat 3 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
-                <div class="catbox">Cat 4 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
-                <div class="catbox">Cat 5 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
-                <div class="catbox">Cat 6 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
-                <div class="catbox">Cat 1 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
-                <div class="catbox">Cat 2 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
-                <div class="catbox">Cat 3 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
-                <div class="catbox">Cat 4 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
-                <div class="catbox">Cat 5 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
-                <div class="catbox">Cat 6 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details</a></div>
+                <div class="catbox">Cat 1 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details <img src="img/icons/arrow.svg" alt=""></a></div>
+                <div class="catbox">Cat 2 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details <img src="img/icons/arrow.svg" alt=""></a></div>
+                <div class="catbox">Cat 3 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details <img src="img/icons/arrow.svg" alt=""></a></div>
+                <div class="catbox">Cat 4 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details <img src="img/icons/arrow.svg" alt=""></a></div>
+                <div class="catbox">Cat 5 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details <img src="img/icons/arrow.svg" alt=""></a></div>
+                <div class="catbox">Cat 6 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details <img src="img/icons/arrow.svg" alt=""></a></div>
+                <div class="catbox">Cat 7 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details <img src="img/icons/arrow.svg" alt=""></a></div>
+                <div class="catbox">Cat 8 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details <img src="img/icons/arrow.svg" alt=""></a></div>
+                <div class="catbox">Cat 9 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details <img src="img/icons/arrow.svg" alt=""></a></div>
+                <div class="catbox">Cat 10 <br> <a href="#cat-profile-page" class="viewcatdetails">View Details <img src="img/icons/arrow.svg" alt=""></a></div>
             </div>
-
+            <div class="add-button"><a href="#addnew-page">+</a></div>
         </div>
         <footer data-role="footer">
             <ul>
                 <li>
-                    <a href="#recent-page"><img src="img/icons/map.svg" class="icon-buttons" alt=""></a>
+                    <a href="#recent-page"><img src="img/icons/map.svg" class="icon-buttons" alt=""><span class="menu-text">Map</span></a>
                 </li>
                 <li>
-                    <a href="#list-page"><img src="img/icons/home.svg" class="icon-buttons" alt=""></a>
+                    <a href="#list-page"><img src="img/icons/home.svg" class="icon-buttons" alt=""><span class="menu-text">Home</span></a>
                 </li>
                 <li>
-                    <a href="#user-profile-page"><img src="img/icons/user.svg" class="icon-buttons" alt=""></a>
+                    <a href="#user-profile-page"><img src="img/icons/user.svg" class="icon-buttons" alt=""><span class="menu-text">Profile</span></a>
                 </li>
             </ul>
         </footer>
     </section>
     <section data-role="page" id="cat-profile-page">
-        <a href="#" data-rel="back"><img src="img/icons/back.svg" class="back-icon" alt=""></a>
-        <!-- <header data-role="header">
-            <ul>
-                <li><a href="#" data-rel="back">Back</a></li>
-                <li class="flex-stretch"></li>
-            </ul>
-        </header> -->
+        <header class="display-flex flex-justify-between header" data-role="none" >
+            <a href="#" data-rel="back"><img src="img/icons/back.svg" class="back-icon" alt="back icon"></a>
+            <a href="#cat-edit-page" data-role="none"><img src="img/icons/edit.svg" class="edit-icon" alt="edit icon"></a>
+        </header>
         <div data-role="main" class="overscroll">
             <h2 class="text-center">Cat Profile</h2>
             <div class="text-center">
@@ -126,11 +142,59 @@
             <div class="form-control"> 
                 <label for="cat-name" class="form-label">Name</label>
                 <input type="text" id="cat-name" data-role="none" class="form-input"
+                placeholder="Mestan" disabled>
+            </div>
+            <div class="form-control">
+                <label for="cat-breed" class="form-label">Breed</label>
+               <select data-role="none" name="select" id="breed-selection" class="selection" disabled>
+                   <option value="Anatolian">Anatolian</option>
+               </select>
+            </div> 
+            <div class="form-control">
+                <label for="cat-info" class="form-label">Description</label>
+                <textarea name="cat-info" class="form-description" data-role="none" placeholder="This is a cat" disabled></textarea>
+            </div> 
+            <div class="form-control">
+                <label for="cat-info" class="form-label">Locations</label>
+                <img src="img/map.png" class="location-map" alt="location-map">
+            </div> 
+         </form>
+        </div>
+        <footer data-role="footer">
+            <ul>
+                <li>
+                    <a href="#recent-page"><img src="img/icons/map.svg" class="icon-buttons" alt=""><span class="menu-text">Map</span></a>
+                </li>
+                <li>
+                    <a href="#list-page"><img src="img/icons/home.svg" class="icon-buttons" alt=""><span class="menu-text">Home</span></a>
+                </li>
+                <li>
+                    <a href="#user-profile-page"><img src="img/icons/user.svg" class="icon-buttons" alt=""><span class="menu-text">Profile</span></a>
+                </li>
+            </ul>
+        </footer>
+    </section>
+    <section data-role="page" id="cat-edit-page">
+        <header class="display-flex flex-justify-between header" data-role="none" >
+            <a href="#" data-rel="back"><img src="img/icons/back.svg" class="back-icon" alt="back icon"></a>
+        </header>
+        <div data-role="main" class="overscroll">
+            <h2 class="text-center">Start Editing</h2>
+            <div class="text-center">
+            <img src="img/cat.jpg" alt="cat-picture" class="profile-image">
+            <a href="#" class="change-photo-text">Change Photo</a>
+        </div>
+        <form class="form" id="cat-edit-form">
+            <div class="form-control"> 
+                <label for="cat-name" class="form-label">Name</label>
+                <input type="text" id="cat-name" data-role="none" class="form-input"
                 placeholder="Mestan">
             </div>
             <div class="form-control">
                 <label for="cat-breed" class="form-label">Breed</label>
-                <input type="text" id="cat-breed" data-role="none" class="form-input" placeholder="Anatolian">
+               <select data-role="none" name="select" id="breed-selection" class="selection-edit">
+                   <option value="Anatolian">Anatolian</option>
+               </select>
             </div> 
             <div class="form-control">
                 <label for="cat-info" class="form-label">Description</label>
@@ -140,43 +204,29 @@
                 <label for="cat-info" class="form-label">Locations</label>
                 <img src="img/map.png" class="location-map" alt="location-map">
             </div> 
-            <div class="form-control"> <a href="#recent-page" class="form-button">Save</a>
+            <div class="form-control"> <a href="#cat-profile-page" class="form-button">Save</a>
             </div>
          </form>
-           
         </div>
         <footer data-role="footer">
             <ul>
                 <li>
-                    <a href="#recent-page"><img src="img/icons/map.svg" class="icon-buttons" alt=""></a>
+                    <a href="#recent-page"><img src="img/icons/map.svg" class="icon-buttons" alt=""><span class="menu-text">Map</span></a>
                 </li>
                 <li>
-                    <a href="#list-page"><img src="img/icons/home.svg" class="icon-buttons" alt=""></a>
+                    <a href="#list-page"><img src="img/icons/home.svg" class="icon-buttons" alt=""><span class="menu-text">Home</span></a>
                 </li>
                 <li>
-                    <a href="#user-profile-page"><img src="img/icons/user.svg" class="icon-buttons" alt=""></a>
+                    <a href="#user-profile-page"><img src="img/icons/user.svg" class="icon-buttons" alt=""><span class="menu-text">Profile</span></a>
                 </li>
             </ul>
         </footer>
-        <!-- <footer data-role="footer">
-            <ul>
-                <li>
-                    <a href="#recent-page">Recent</a>
-                </li>
-                <li>
-                    <a href="#list-page">List</a>
-                </li>
-                <li>
-                    <a href="#user-profile-page">Profile</a>
-                </li>
-            </ul>
-        </footer> -->
     </section>
     <section data-role="page" id="user-profile-page">
-        <div class="display-flex flex-justify-between">
-        <a href="#" data-rel="back"><img src="img/icons/back.svg" class="back-icon" alt=""></a>
-        <a href="#" data-role="none" class="js-logout logout-text">Logout</a>
-    </div>
+        <header class="display-flex flex-justify-between header" data-role="none">
+            <div class="flex-strecth"></div>
+        <a href="#edit-profile-page" data-role="none"><img src="img/icons/edit.svg" class="edit-icon" alt="edit icon"></a>
+    </header>
         <div data-role="main" class="overscroll">
             <h2 class="text-center">User profile</h2>
             <div class="text-center">
@@ -184,61 +234,142 @@
             </div>
             <form class="form" id="user-edit-form">
                 <div class="form-control"> 
-                    <label for="user-name" class="form-label">Name</label>
+                    <label for="user-name" class="form-label">Username</label>
                     <input type="text" id="user-name" data-role="none" class="form-input"
-                    placeholder="Huseyn">
+                    placeholder="huseyn" disabled>
                 </div>
                 <div class="form-control"> 
                     <label for="user-email" class="form-label">Email</label>
                     <input type="email" id="user-email" data-role="none" class="form-input"
-                    placeholder="hyusifov2@art.edu">
+                    placeholder="hyusifov2@art.edu" disabled>
                 </div>
                 <div class="form-control"> 
-                    <label for="user-age" class="form-label">Age</label>
-                    <input type="number" min="1" max="100" id="user-age" data-role="none" class="form-input" placeholder="99">
+                    <label for="user-birth" class="form-label">Date of Birth</label>
+                    <input type="text" id="user-birth" data-role="none" class="form-input" value="31/12/2021" disabled>
                 </div>
-                <div class="form-control">
-                    <label for="user-image" class="form-label">Image</label>
-                        <input type="file" id="user-image" data-role="none" class="image-input" accept="image/*">
-                </div> 
                 <div class="form-control">
                     <label for="user-password" class="form-label">Password</label>
-                    <input type="password" id="user-password" data-role="none" class="form-input" placeholder="******">
+                    <input type="password" id="user-password" data-role="none" class="form-input" placeholder="******" disabled>
                 </div> 
-                <div class="form-control"> <a href="#recent-page" class="form-button">Save</a>
+                <div class="form-control">
+                <a href="#" data-role="none" class="js-logout form-button">Log out</a>
                 </div>
              </form>
-           
         </div>
         <footer data-role="footer">
             <ul>
                 <li>
-                    <a href="#recent-page"><img src="img/icons/map.svg" class="icon-buttons" alt=""></a>
+                    <a href="#recent-page"><img src="img/icons/map.svg" class="icon-buttons" alt=""><span class="menu-text">Map</span></a>
                 </li>
                 <li>
-                    <a href="#list-page"><img src="img/icons/home.svg" class="icon-buttons" alt=""></a>
+                    <a href="#list-page"><img src="img/icons/home.svg" class="icon-buttons" alt=""><span class="menu-text">Home</span></a>
                 </li>
                 <li>
-                    <a href="#user-profile-page"><img src="img/icons/user.svg" class="icon-buttons" alt=""></a>
+                    <a href="#user-profile-page"><img src="img/icons/user.svg" class="icon-buttons" alt=""><span class="menu-text">Profile</span></a>
                 </li>
             </ul>
         </footer>
     </section>
     <section data-role="page" id="edit-profile-page">
-        <a href="#" data-rel="back"><img src="img/icons/back.svg" class="back-icon" alt=""></a>
-        <div data-role="main">
-            edit user profile
+        <header class="display-flex flex-justify-between header" data-role="none" >
+            <a href="#" data-rel="back"><img src="img/icons/back.svg" class="back-icon" alt="back icon"></a>
+        </header>
+            <div data-role="main" class="overscroll">
+                <h2 class="text-center">Start Editing</h2>
+                <div class="text-center">
+                    <img src="img/HY.PNG" alt="cat-picture" class="profile-image">
+                    <a href="#" class="change-photo-text">Change Photo</a>
+                </div>
+                <form class="form" id="user-edit-form">
+                    <div class="form-control"> 
+                        <label for="user-name" class="form-label">Username</label>
+                        <input type="text" id="user-name" data-role="none" class="form-input"
+                        placeholder="huseyn">
+                    </div>
+                    <div class="form-control"> 
+                        <label for="user-email" class="form-label">Email</label>
+                        <input type="email" id="user-email" data-role="none" class="form-input"
+                        placeholder="hyusifov2@art.edu">
+                    </div>
+                    <div class="form-control"> 
+                        <label for="user-birth" class="form-label">Date of Birth</label>
+                        <input type="date" id="user-birth" data-role="none" class="form-input">
+                    </div>
+                    <!-- <div class="form-control">
+                        <label for="user-image" class="form-label">Image</label>
+                            <input type="file" id="user-image" data-role="none" class="image-input" accept="image/*">
+                    </div>  -->
+                    <div class="form-control">
+                        <label for="user-password" class="form-label">Password</label>
+                        <input type="password" id="user-password" data-role="none" class="form-input" placeholder="******">
+                    </div> 
+                    <div class="form-control">
+                        <label for="user-password" class="form-label">Confirm Password</label>
+                        <input type="password" id="user-password" data-role="none" class="form-input" placeholder="******">
+                    </div> 
+                    <div class="form-control"> <a href="#recent-page" class="form-button">Save</a>
+                    </div>
+                 </form>
+            </div>
+            <footer data-role="footer">
+                <ul>
+                    <li>
+                        <a href="#recent-page"><img src="img/icons/map.svg" class="icon-buttons" alt=""><span class="menu-text">Map</span></a>
+                    </li>
+                    <li>
+                        <a href="#list-page"><img src="img/icons/home.svg" class="icon-buttons" alt=""><span class="menu-text">Home</span></a>
+                    </li>
+                    <li>
+                        <a href="#user-profile-page"><img src="img/icons/user.svg" class="icon-buttons" alt=""><span class="menu-text">Profile</span></a>
+                    </li>
+                </ul>
+            </footer>
+    </section>
+    <section data-role="page" id="addnew-page">
+        <header class="display-flex flex-justify-between header" data-role="none" >
+            <a href="#" data-rel="back"><img src="img/icons/back.svg" class="back-icon" alt="back icon"></a>
+            <a href="#cat-edit-page" data-role="none"><img src="img/icons/edit.svg" class="edit-icon" alt="edit icon"></a>
+        </header>
+        <div data-role="main" class="overscroll">
+            <h2 class="text-center">Add New</h2>
+            <div class="text-center ">
+            <img src="img/icons/camera.svg" alt="upload-icon" class="upload-icon">
+        </div>
+        <form class="form" id="cat-edit-form">
+            <div class="form-control"> 
+                <label for="cat-name" class="form-label">Name</label>
+                <input type="text" id="cat-name" data-role="none" class="form-input"
+                placeholder="Type a name">
+            </div>
+            <div class="form-control">
+                <label for="cat-breed" class="form-label">Breed</label>
+               <select data-role="none" name="select" id="breed-selection" class="selection-edit">
+                   <option value="default">Select a breed</option>
+                   <option value="Anatolian">Anatolian</option>
+               </select>
+            </div> 
+            <div class="form-control">
+                <label for="cat-info" class="form-label">Description</label>
+                <textarea name="cat-info" class="form-description" data-role="none" placeholder="Type a description"></textarea>
+            </div> 
+            <div class="form-control">
+                <label for="cat-info" class="form-label">Add a location</label>
+                <img src="img/map.png" class="location-map" alt="location-map">
+            </div> 
+            <div class="form-control"> <a href="#list-page" class="form-button">Save</a>
+            </div>
+         </form>
         </div>
         <footer data-role="footer">
             <ul>
                 <li>
-                    <a href="#recent-page"><img src="img/icons/map.svg" class="icon-buttons" alt=""></a>
+                    <a href="#recent-page"><img src="img/icons/map.svg" class="icon-buttons" alt=""><span class="menu-text">Map</span></a>
                 </li>
                 <li>
-                    <a href="#list-page"><img src="img/icons/home.svg" class="icon-buttons" alt=""></a>
+                    <a href="#list-page"><img src="img/icons/home.svg" class="icon-buttons" alt=""><span class="menu-text">Home</span></a>
                 </li>
                 <li>
-                    <a href="#user-profile-page"><img src="img/icons/user.svg" class="icon-buttons" alt=""></a>
+                    <a href="#user-profile-page"><img src="img/icons/user.svg" class="icon-buttons" alt=""><span class="menu-text">Profile</span></a>
                 </li>
             </ul>
         </footer>
