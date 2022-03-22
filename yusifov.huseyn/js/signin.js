@@ -4,7 +4,7 @@ const checkLoginForm = () => {
  
     console.log(user,pass)
  
-    if (user === 'user' && pass === 'pass') {
+    if (user === 'huseyn' && pass === 'password') {
        // logged in
        console.log('success');
        sessionStorage.userId = 3;
@@ -19,12 +19,12 @@ const checkLoginForm = () => {
  }
  
  const checkUserId = () => {
-    let p = ["#signin-page","#signup-page",""];
+    let p = ["#signin-page","#signup-page","#welcome-page",""];
  
     if (sessionStorage.userId === undefined) {
        // not logged in
        if(!p.some(o => o === window.location.hash))
-          $.mobile.navigate("#signin-page");
+          $.mobile.navigate("#welcome-page");
     } else {
        // logged in
        if(p.some(o => o === window.location.hash))
