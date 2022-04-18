@@ -70,7 +70,9 @@ function makeStatement($data){
             return makeQuery($c,"SELECT * FROM `animals` WHERE `user_id` = ?",$p);
          case 'locations_by_cat_id':
             return makeQuery($c,"SELECT * FROM `locations` WHERE `animal_id` = ?",$p);
-
+            
+         case 'locations_by_user_id':
+            return makeQuery($c,"SELECT `lat`,`lng` FROM `locations` JOIN `animals` ON `locations.animal_id` = `animals.id` JOIN `users` ON `animals.user_id` = user.id`",$p);
                      
          case 'check_signin':
             return makeQuery($c,"SELECT id from `users` WHERE `username` = ? AND `password` = md5(?)",$p);

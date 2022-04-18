@@ -1,3 +1,5 @@
+const error = document.getElementById('error-message');
+
 const checkLoginForm = async () => {
     let user = $("#signin-username").val();
     let pass = $("#signin-password").val();
@@ -14,10 +16,12 @@ const checkLoginForm = async () => {
        console.log('success');
        sessionStorage.userId = founduser.result[0].id;
        $("#signin-form")[0].reset();
+       error.style.display = 'none'
     } else {
        // not logged in
        console.log('failure');
        sessionStorage.removeItem('userId');
+       error.style.display = 'block'
     }
  
     checkUserId();

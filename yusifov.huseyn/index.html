@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
     <link rel="stylesheet" href="css/app.css">
     <script src="js/app.js"></script>
-    <script src="js/signin.js"></script>
+    <script src="js/signin.js" defer></script>
     <script src="js/pages.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/parts.js"></script>
@@ -20,9 +20,7 @@
         <div data-role="main" class="flex-column display-flex">
             <div class="flex-stretch"></div>
             <h2 class="welcome-text">Locat is created for you to track your cats</h2>
-            <button data-role="none" class="welcome-button">
-                <a href="#signin-page">Sign In</a>
-            </button>
+            <a data-role="none" class="welcome-button" href="#signin-page">Sign In</a>
         </div>
     </section>
     <section data-role="page" id="signin-page">
@@ -42,18 +40,20 @@
                <label for="signin-password" class="form-label">Password</label>
                <input type="password" id="signin-password" data-role="none" class="form-input" placeholder="Type your password">
            </div> 
+        <p id="error-message">Username or Password is incorrect</p>
            <div class="form-control"> 
                <button type="submit" class="form-button">Sign In</button>
            </div>
         </form>
-        <p class="signuptext">Don't have an account yet? <a href="#signup-page">Create New</a></p>
+        <p class="signin-signup-text">Don't have an account yet? <a href="#signup-page">Create New</a></p>
         <div class="flex-stretch"></div>
         </div>
     </section>
     <section data-role="page" id="signup-page">
         <a href="#" data-rel="back"><img src="img/icons/back.svg" class="back-icon" alt=""></a>
         <div data-role="main">
-            <h2 class="sign-text">Sign Up</h2>
+            <div class="flex-stretch"></div>
+            <h2 class="signuptext">Sign Up</h2>
             <form class="form" id="signup-form">
            <div class="form-control"> 
                <label for="signup-username" class="form-label">Username</label>
@@ -76,7 +76,8 @@
            <div class="form-control"> <a href="#recent-page" class="form-button">Sign Up</a>
            </div>
         </form>
-        <p class="signuptext">Already have one? <a href="#signin-page">Sign In</a></p>
+        <p class="signin-signup-text">Already have one? <a href="#signin-page">Sign In</a></p>
+        <div class="flex-stretch"></div>
         </div>
     </section>
     <section data-role="page" id="recent-page">
@@ -126,52 +127,12 @@
         <div data-role="main" class="overscroll"></div>
         <footer data-role="footer" data-template="#footer-template"></footer>
     </section>
+
     <section data-role="page" id="cat-edit-page">
         <header class="display-flex flex-justify-between header" data-role="none" >
             <a href="#" data-rel="back"><img src="img/icons/back.svg" class="back-icon" alt="back icon"></a>
         </header>
-        <div data-role="main" class="overscroll">
-            <h2 class="text-center">Start Editing</h2>
-            <div class="text-center">
-            <img src="img/cat.jpg" alt="cat-picture" class="profile-image" data-activate="#photo-upload-modal">
-            <a href="#" class="change-photo-text" data-activate="#photo-upload-modal">Change Photo</a>
-        </div>
-            <div class="modal" id="photo-upload-modal">
-                <div class="modal-back" data-deactivate="#photo-upload-modal"></div>
-                <div class="modal-popup text-center">
-                    <h4 class="modal-head-text">Please Select a Method to Upload an Image</h4>
-                    <div class="display-flex">
-                    <button class="choose-gallery-button"><a href="#" data-role="none">Upload from Gallery</a></button>
-                    <button class="camera-roll-button"><a href="#" data-role="none" class="">Take a Picture</a></button>
-                </div>
-                </div>
-             </div>
-        <form class="form" id="cat-edit-form">
-            <div class="form-control"> 
-                <label for="edit-cat-name" class="form-label">Name</label>
-                <input type="text" id="edit-cat-name" data-role="none" class="form-input"
-                placeholder="Mestan">
-            </div>
-            <div class="form-control">
-                <label for="edit-breed-selection" class="form-label">Breed</label>
-               <select data-role="none" name="select" id="edit-breed-selection" class="selection-edit">
-                   <option value="Anatolian">Anatolian</option>
-               </select>
-            </div> 
-            <div class="form-control">
-                <label for="edit-cat-info" class="form-label">Description</label>
-                <textarea name="edit-cat-info" class="form-description" data-role="none" placeholder="This is a cat"></textarea>
-            </div> 
-            <div class="form-control">
-                <label for="edit-cat-location" class="form-label">Locations</label>
-                <a href="#map-drop-pin-page">
-                <img src="img/map.png" class="location-map" alt="location-map">
-            </a>
-            </div> 
-            <div class="form-control"> <a href="#cat-profile-page" class="form-button">Save</a>
-            </div>
-         </form>
-        </div>
+        <div data-role="main" class="overscroll"></div>
     </section>
     <section data-role="page" id="map-drop-pin-page">
         <header class="display-flex flex-justify-between header" data-role="none" >
@@ -194,49 +155,7 @@
         <header class="display-flex flex-justify-between header" data-role="none" >
             <a href="#" data-rel="back"><img src="img/icons/back.svg" class="back-icon" alt="back icon"></a>
         </header>
-            <div data-role="main" class="overscroll">
-                <h2 class="text-center">Edit Profile</h2>
-                <div class="text-center">
-                    <img src="img/HY.PNG" alt="cat-picture" class="profile-image" data-activate="#user-photo-upload-modal">
-                    <a href="#" class="change-photo-text" data-activate="#user-photo-upload-modal">Change Photo</a>
-                </div>
-                    <div class="modal" id="user-photo-upload-modal">
-                        <div class="modal-back" data-deactivate="#user-photo-upload-modal"></div>
-                        <div class="modal-popup text-center">
-                            <h4 class="modal-head-text">Please Select a Method to Upload an Image</h4>
-                            <div class="display-flex">
-                            <button class="choose-gallery-button"><a href="#" data-role="none">Upload from Gallery</a></button>
-                            <button class="camera-roll-button"><a href="#" data-role="none" class="">Take a Picture</a></button>
-                        </div>
-                        </div>
-                     </div>
-                <form class="form" id="user-edit-form">
-                    <div class="form-control"> 
-                        <label for="edit-user-name" class="form-label">Username</label>
-                        <input type="text" id="edit-user-name" data-role="none" class="form-input"
-                        placeholder="huseyn">
-                    </div>
-                    <div class="form-control"> 
-                        <label for="edit-user-email" class="form-label">Email</label>
-                        <input type="email" id="edit-user-email" data-role="none" class="form-input"
-                        placeholder="hyusifov2@art.edu">
-                    </div>
-                    <div class="form-control"> 
-                        <label for="edit-user-birth" class="form-label">Date of Birth</label>
-                        <input type="date" id="edit-user-birth" data-role="none" class="form-input">
-                    </div>
-                    <div class="form-control">
-                        <label for="edit-user-password" class="form-label">Password</label>
-                        <input type="password" id="edit-user-password" data-role="none" class="form-input" placeholder="******">
-                    </div> 
-                    <div class="form-control">
-                        <label for="user-confirm-password" class="form-label">Confirm Password</label>
-                        <input type="password" id="user-confirm-password" data-role="none" class="form-input" placeholder="******">
-                    </div> 
-                    <div class="form-control"> <a href="#recent-page" class="form-button">Save</a>
-                    </div>
-                 </form>
-            </div>
+        <div data-role="main" class="overscroll"></div>
     </section>
     <section data-role="page" id="addnew-page">
         <header class="display-flex flex-justify-between header" data-role="none" >
@@ -267,7 +186,9 @@
                 <label for="add-breed-selection" class="form-label">Breed</label>
                <select data-role="none" name="select" id="add-breed-selection" class="selection-edit">
                    <option value="default">Select a breed</option>
-                   <option value="Anatolian">Anatolian</option>
+                   <option value="Turkish Angora">Turkish Angora</option>
+                <option value="Siberian Cat">Siberian Cat</option>
+                <option value="Bengal Cat">Bengal Cat</option>
                </select>
             </div> 
             <div class="form-control">

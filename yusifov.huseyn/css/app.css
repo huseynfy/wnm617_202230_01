@@ -364,7 +364,7 @@ h5 {
   padding: 5% 1em 1em 1em;
 }
 #signup-form {
-  padding: 10% 1em 1em 1em;
+  padding: 5% 1em 1em 1em;
 }
 #cat-edit-form,
 #user-edit-form,
@@ -383,15 +383,25 @@ h5 {
   padding: 1em 0 0 1em;
 }
 .signuptext {
-  text-align: center;
+  padding-left: 1em;
   color: var(--white-color);
+}
+.signin-signup-text{
+  color: var(--white-color);
+  text-align: center;
 }
 .logout-text {
   margin: 20px 24px 0 0;
   color: var(--blue-color);
   font-size: 18px;
 }
-
+#error-message{
+  padding-left: 1em;
+  color: rgb(207, 49, 49);
+  font-family: Montserrat Bold;
+  font-size: 18px;
+  display: none;
+}
 /* -------- Page Layouts ------- */
 
 .ui-mobile .ui-page-active {
