@@ -7,9 +7,9 @@ $(() => {
    .on("pagecontainerbeforeshow", function (event, ui) {
       // Page Routing
       switch (ui.toPage[0].id) {
-        // case "recent-page":
-        //   RecentPage();
-        //   break;
+        case "recent-page":
+          RecentPage();
+          break;
         case "list-page":
           ListPage();
           break;
@@ -18,9 +18,6 @@ $(() => {
           break;
         case "cat-profile-page":
           CatProfilePage();
-          break;
-        case "recent-page":
-          LocationsOfCats();
           break;
           case "cat-edit-page":
             CatEditPage();

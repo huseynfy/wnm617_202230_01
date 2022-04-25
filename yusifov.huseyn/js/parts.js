@@ -1,5 +1,6 @@
 const makeCatList = templater(o =>`
-<div class="catbox">${o.name}<br><a href="#cat-profile-page" data-id=${o.id} class="viewcatdetails js-cat-jump ">View Details<img src="img/icons/arrow.svg" alt=""></a></div>
+<a href="#cat-profile-page" data-id=${o.id} class="js-cat-jump">
+<div class="catbox">${o.name}<br><a href="#cat-profile-page" data-id=${o.id} class="viewcatdetails js-cat-jump">View Details<img src="img/icons/arrow.svg" alt=""></a></div> </a>
 `);
 
 const makeUserProfilePage = o =>
@@ -60,11 +61,10 @@ const makeCatProfilePage = o =>
         <label for="cat-info" class="form-label">Description</label>
         <textarea name="cat-info" class="form-description" data-role="none" placeholder="${o.description}" disabled></textarea>
     </div> 
-    <div class="form-control">
         <label for="cat-info" class="form-label">Locations</label>
-        <img src="img/map.png" class="location-map" alt="location-map">
-    </div> 
+      <div class="cat-map"></div>
  </form>
+
  `
 
  const makeCatEditPage = o => 
