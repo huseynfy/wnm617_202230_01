@@ -63,12 +63,14 @@ const UserEditPage = async () => {
 
 const RecentPage = async () => {
   
-    let {result} = await query({
+    let {result,error} = await query({
         type:'recent_animal_locations',
         params:[sessionStorage.userId]
      });
      console.log(result);
-  
+
+     if(error) throw(error);
+
      let valid_animals = result.reduce((r,o)=>{
         o.icon = o.img;
         if(o.lat && o.lng) r.push(o);
@@ -77,4 +79,13 @@ const RecentPage = async () => {
   
      let map_el = await makeMap("#recent-page .map");
      makeMarkers(map_el,valid_animals)
-};
+     map_el.data("markers").forEach((m,i)=>{
+      console.log(m)
+      m.addListener("click",function(e){
+         let animal = valid_animals[i];
+
+         sessionStorage.animalId = animal.animal_id;
+         $.mobile.navigate("#cat-profile-page");
+      })
+})
+}

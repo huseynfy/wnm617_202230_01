@@ -15,6 +15,7 @@
     <script src="js/pages.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/parts.js"></script>
+    <script src="js/forms.js"></script>
     <script src="js/maps.js"></script>
     <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
     <script
@@ -28,11 +29,9 @@
       <div data-role="main" class="flex-column display-flex">
         <div class="flex-stretch"></div>
         <h2 class="welcome-text">
-          Locat is created for you to track your cats
+          Locat was created for you to track your cats
         </h2>
-        <a data-role="none" class="welcome-button" href="#signin-page"
-          >Sign In</a
-        >
+        <a data-role="none" class="welcome-button" href="#signin-page">Sign In</a>
       </div>
     </section>
     <section data-role="page" id="signin-page">
@@ -125,7 +124,7 @@
             />
           </div>
           <div class="form-control">
-            <a href="#recent-page" class="form-button">Sign Up</a>
+            <button type="submit" class="form-button" data-role="none">Sign Up</button>
           </div>
         </form>
         <p class="signin-signup-text">
@@ -147,13 +146,14 @@
       </div>
       <footer data-role="footer" data-template="#footer-template"></footer>
     </section>
+
     <section data-role="page" id="cat-profile-page">
       <header class="display-flex flex-justify-between header" data-role="none">
         <a href="#" data-rel="back"
-          ><img src="img/icons/back.svg" class="back-icon" alt="back icon"
+          ><img src="img/icons/back.svg" class="back-icon" alt="back-icon"
         /></a>
         <a href="#cat-edit-page" data-role="none"
-          ><img src="img/icons/edit.svg" class="edit-icon" alt="edit icon"
+          ><img src="img/icons/edit.svg" class="edit-icon" alt="edit-icon"
         /></a>
       </header>
       <div data-role="main" class="overscroll"></div>
@@ -163,15 +163,16 @@
     <section data-role="page" id="cat-edit-page">
       <header class="display-flex flex-justify-between header" data-role="none">
         <a href="#" data-rel="back"
-          ><img src="img/icons/back.svg" class="back-icon" alt="back icon"
+          ><img src="img/icons/back.svg" class="back-icon" alt="back-icon"
         /></a>
       </header>
       <div data-role="main" class="overscroll"></div>
     </section>
+
     <section data-role="page" id="map-drop-pin-page">
       <header class="display-flex flex-justify-between header" data-role="none">
         <a href="#" data-role="none" data-rel="back"
-          ><img src="img/icons/back.svg" class="back-icon" alt="edit icon"
+          ><img src="img/icons/back.svg" class="back-icon" alt="edit-icon"
         /></a>
         <h3 class="drop-pin-text">Drop a Pin</h3>
       </header>
@@ -179,28 +180,71 @@
         <img src="img/map.png" class="image" alt="map-image" />
       </div>
     </section>
+
     <section data-role="page" id="user-profile-page">
       <header class="display-flex flex-justify-between header" data-role="none">
         <div class="flex-strecth"></div>
-        <a href="#edit-profile-page" data-role="none"
-          ><img src="img/icons/edit.svg" class="edit-icon" alt="edit icon"
+        <a href="#settings-page" data-role="none"
+          ><img src="img/icons/settings.svg" class="edit-icon" alt="settings-icon"
         /></a>
       </header>
       <div data-role="main" class="overscroll"></div>
       <footer data-role="footer" data-template="#footer-template"></footer>
     </section>
+
+    <section data-role="page" id="settings-page">
+      <header class="display-flex flex-justify-between header" data-role="none">
+        <a href="#" data-rel="back"
+        ><img src="img/icons/back.svg" class="back-icon" alt="back-icon"
+      /></a>
+      </header>
+      <div data-role="main" class="overscroll">
+        <div class="info-box-div">
+          <a href="#edit-profile-page">Edit User Info</a>
+          <a href="#change-password-page">Change Password</a>
+        </div>
+      </div>
+    </section>
+
+    <section data-role="page" id="change-password-page">
+      <header class="display-flex flex-justify-between header" data-role="none">
+        <a href="#" data-rel="back"
+          ><img src="img/icons/back.svg" class="back-icon" alt="back-icon"
+        /></a>
+      </header>
+      <h2 class="signuptext">Change Password</h2>
+      <div data-role="main" class="">
+        <form id="user-password-form" class="overscroll fill-parent display-flex flex-column" data-ajax="false">
+          <div class="form-control">
+            <label for="edit-user-password" class="form-label">New Password</label>
+            <input type="password" id="edit-user-password" data-role="none" class="form-input">
+        </div> 
+        <div class="form-control">
+            <label for="user-confirm-password" class="form-label">Confirm Password</label>
+            <input type="password" id="user-confirm-password" data-role="none" class="form-input">
+        </div> 
+        <div class="flex-stretch"></div>
+        <div class="form-control"> 
+          <button type="submit" class="form-button js-submit-user-edit">Save</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    
     <section data-role="page" id="edit-profile-page">
       <header class="display-flex flex-justify-between header" data-role="none">
         <a href="#" data-rel="back"
-          ><img src="img/icons/back.svg" class="back-icon" alt="back icon"
+          ><img src="img/icons/back.svg" class="back-icon" alt="back-icon"
         /></a>
       </header>
       <div data-role="main" class="overscroll"></div>
     </section>
+
     <section data-role="page" id="addnew-page">
       <header class="display-flex flex-justify-between header" data-role="none">
         <a href="#" data-rel="back"
-          ><img src="img/icons/back.svg" class="back-icon" alt="back icon"
+          ><img src="img/icons/back.svg" class="back-icon" alt="back-icon"
         /></a>
       </header>
       <div data-role="main" class="overscroll">
@@ -257,6 +301,7 @@
           <div class="form-control">
             <label for="add-cat-info" class="form-label">Description</label>
             <textarea
+            id="add-cat-info"
               name="add-cat-info"
               class="form-description"
               data-role="none"
@@ -272,7 +317,7 @@
             </a>
           </div>
           <div class="form-control">
-            <a href="#list-page" class="form-button">Save</a>
+            <a href="#" class="form-button js-submit-animal-add">Save</a>
           </div>
         </form>
       </div>
@@ -280,13 +325,19 @@
     <script type="text/template" id="footer-template">
       <ul class="nav-icon-set">
           <li>
-              <a href="#recent-page"  data-activateone=".nav-icon-set li:nth-child(1)"><img src="img/icons/map.svg" class="icon-buttons" alt=""><span class="menu-text">Map</span></a>
+              <a href="#recent-page" data-activateone=".nav-icon-set li:nth-child(1)">
+                <img src="img/icons/map.svg" class="icon-buttons" alt="map-icon">
+                <span class="menu-text">Map</span></a>
           </li>
           <li>
-              <a href="#list-page"  data-activateone=".nav-icon-set li:nth-child(2)"><img src="img/icons/home.svg" class="icon-buttons" alt="" ><span class="menu-text">Home</span></a>
+              <a href="#list-page" data-activateone=".nav-icon-set li:nth-child(2)">
+                <img src="img/icons/home.svg" class="icon-buttons" alt="home-icon">
+                <span class="menu-text">Home</span></a>
           </li>
           <li>
-              <a href="#user-profile-page" data-activateone=".nav-icon-set li:nth-child(3)" ><img src="img/icons/user.svg" class="icon-buttons" alt=""><span class="menu-text" >Profile</span></a>
+              <a href="#user-profile-page" data-activateone=".nav-icon-set li:nth-child(3)">
+                <img src="img/icons/user.svg" class="icon-buttons" alt="user-icon">
+                <span class="menu-text" >Profile</span></a>
           </li>
       </ul>
     </script>

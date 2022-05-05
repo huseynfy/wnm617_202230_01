@@ -34,6 +34,23 @@ $(() => {
       checkLoginForm();
     })
 
+    .on("submit", "#signup-form", function(e) {
+      e.preventDefault();
+      submitUserSignup();
+   })
+
+
+    // Form submission clicks
+
+    .on('click','.js-submit-animal-add',function(){
+      submitCatAdd()
+    })
+
+    .on('click','.js-submit-animal-edit',function(){
+      submitCatEdit()
+    })
+
+
     // CLICKS
     .on("click", ".js-logout", function () {
       sessionStorage.removeItem("userId");

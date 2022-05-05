@@ -4,29 +4,20 @@ const makeCatList = templater(o =>`
 `);
 
 const makeUserProfilePage = o =>
-    ` <h2 class="text-center">User profile</h2>
+    ` <h2 class="text-center">${o.name}'s Profile</h2>
  <div class="text-center">
-    <img src="${o.img}" alt="cat-picture" class="profile-image">
+    <img src="${o.img}" alt="user-picture" class="profile-image">
 </div>
-<form class="form" id="user-form">
-    <div class="form-control"> 
-        <label for="user-name" class="form-label">Username</label>
-        <input type="text" id="user-name" data-role="none" class="form-input"
-        placeholder="${o.name}" disabled>
-    </div>
-    <div class="form-control"> 
-        <label for="user-email" class="form-label">Email</label>
-        <input type="email" id="user-email" data-role="none" class="form-input"
-        placeholder="${o.email}" disabled>
-    </div>
-    <div class="form-control">
-        <label for="user-password" class="form-label">Password</label>
-        <input type="password" id="user-password" data-role="none" class="form-input" placeholder="******" disabled>
-    </div> 
-    <div class="form-control">
-    <a href="#" data-role="none" data-activate="#logout-modal" class="form-button">Log out</a>
-    </div>
- </form>
+<div class="info-box-div">
+<h3 class="info-header-text">User Info</h3>
+<h4><span class="info-text-name">Name: </span>${o.name}</h4>
+<h4><span class="info-text-name">Username: </span>${o.username}</h4>
+<h4><span class="info-text-name">Email: </span>${o.email}</h4>
+<div class="flex-strecth"></div>
+<div class="form-control">
+<a href="#" data-role="none" data-activate="#logout-modal" class="form-button">Log out</a>
+</div>
+</div>
  <div class="modal" id="logout-modal">
     <div class="modal-back" data-deactivate="#logout-modal"></div>
     <div class="modal-popup text-center">
@@ -41,7 +32,7 @@ const makeUserProfilePage = o =>
 
 const makeCatProfilePage = o =>
     `  
-    <h2 class="text-center">Cat Profile</h2>
+    <h2 class="text-center">${o.name}'s Profile</h2>
       <div class="text-center">
     <img src="${o.img}" alt="cat-picture" class="profile-image">
 </div>
@@ -109,7 +100,8 @@ const makeCatProfilePage = o =>
      <img src="img/map.png" class="location-map" alt="location-map">
  </a>
  </div> 
- <div class="form-control"> <a href="#cat-profile-page" class="form-button">Save</a>
+ <div class="form-control">
+ <button type="submit" class="form-button js-submit-animal-edit">Save</button>
  </div>
 </form>
  
@@ -133,10 +125,15 @@ const makeCatProfilePage = o =>
          </div>
       </div>
  <form class="form" id="user-edit-form">
+ <div class="form-control"> 
+ <label for="edit-user-name" class="form-label">Name</label>
+ <input type="text" id="edit-user-name" data-role="none" class="form-input"
+ placeholder="${o.name}">
+</div>
      <div class="form-control"> 
-         <label for="edit-user-name" class="form-label">Username</label>
+         <label for="edit-username" class="form-label">Username</label>
          <input type="text" id="edit-user-name" data-role="none" class="form-input"
-         placeholder="${o.name}">
+         placeholder="${o.username}">
      </div>
      <div class="form-control"> 
          <label for="edit-user-email" class="form-label">Email</label>
@@ -144,18 +141,7 @@ const makeCatProfilePage = o =>
          placeholder="${o.email}">
      </div>
      <div class="form-control"> 
-         <label for="edit-user-birth" class="form-label">Date of Birth</label>
-         <input type="date" id="edit-user-birth" data-role="none" class="form-input">
-     </div>
-     <div class="form-control">
-         <label for="edit-user-password" class="form-label">Password</label>
-         <input type="password" id="edit-user-password" data-role="none" class="form-input" placeholder="******">
-     </div> 
-     <div class="form-control">
-         <label for="user-confirm-password" class="form-label">Confirm Password</label>
-         <input type="password" id="user-confirm-password" data-role="none" class="form-input" placeholder="******">
-     </div> 
-     <div class="form-control"> <a href="#recent-page" class="form-button">Save</a>
+     <button type="submit" class="form-button js-submit-user-edit">Save</button>
      </div>
   </form>
  `
