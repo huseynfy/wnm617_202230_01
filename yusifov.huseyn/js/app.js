@@ -3,8 +3,7 @@ $(() => {
 
   // EVENT DELEGATION
   $(document)
-
-   .on("pagecontainerbeforeshow", function (event, ui) {
+    .on("pagecontainerbeforeshow", function (event, ui) {
       // Page Routing
       switch (ui.toPage[0].id) {
         case "recent-page":
@@ -19,12 +18,15 @@ $(() => {
         case "cat-profile-page":
           CatProfilePage();
           break;
-          case "cat-edit-page":
-            CatEditPage();
+        case "cat-edit-page":
+          CatEditPage();
           break;
-          case "edit-profile-page":
-            UserEditPage();
+        case "edit-profile-page":
+          UserEditPage();
           break;
+        case "choose-location-page": 
+        ChooseLocationPage(); 
+        break;
       }
     })
 
@@ -34,22 +36,30 @@ $(() => {
       checkLoginForm();
     })
 
-    .on("submit", "#signup-form", function(e) {
+    .on("submit", "#signup-form", function (e) {
       e.preventDefault();
       submitUserSignup();
-   })
-
+    })
 
     // Form submission clicks
 
-    .on('click','.js-submit-animal-add',function(){
-      submitCatAdd()
+    .on("click", ".js-submit-animal-add", function () {
+      submitCatAdd();
+    })
+    .on("click", ".js-submit-animal-edit", function () {
+      submitCatEdit();
     })
 
-    .on('click','.js-submit-animal-edit',function(){
-      submitCatEdit()
+    .on("click", ".js-submit-user-edit", function () {
+      submitUserEdit();
+    })
+    .on("click", ".js-submit-location-add", function () {
+      submitLocationAdd();
     })
 
+    .on("click",".js-animal-delete", function(e) {
+      submitDeleteCat();
+   })
 
     // CLICKS
     .on("click", ".js-logout", function () {
@@ -58,13 +68,13 @@ $(() => {
     })
 
     .on("click", ".js-cat-jump", function (e) {
-       try {
-         e.preventDefault();
-         sessionStorage.catId = $(this).data('id');
-         $.mobile.navigate("#cat-profile-page")
-       } catch (error) {
-          throw('no id detected')
-       }
+      try {
+        e.preventDefault();
+        sessionStorage.catId = $(this).data("id");
+        $.mobile.navigate("#cat-profile-page");
+      } catch (error) {
+        throw "no id detected";
+      }
     })
 
     // ACTIVATE TOOLS

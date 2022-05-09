@@ -93,41 +93,77 @@ function makeStatement($data){
             return makeQuery($c,"SELECT id from `users` WHERE `username` = ? AND `password` = md5(?)",$p);
 
             /* INSERT */
-      case 'insert_cat':
-         $r = makeQuery($c,"INSERT INTO 'animals' (`user_id`,`name`,`breed`,`description`,`img`,`date_create`) VALUES (?,?,?,?,'https://via.placeholder.com/400?text=Cat', NOW())",$p, false);
-         return ["id"=>$c->lastInsertId()];
-
-         case 'insert_location':
-            $r = makeQuery($c,"INSERT INTO 'locations' (`animal_id`,`lat`,`lng`,`description`,`img`,`date_create`) VALUES (?,?,?,?,'https://via.placeholder.com/400?text=Icon', NOW())",$p, false);
+         case "insert_cat":
+            makeQuery($c,"INSERT INTO
+               `animals`
+               (`user_id`,`name`,`breed`,`description`,`img`,`date_create`)
+               VALUES
+               (?, ?, ?, ?, 'https://via.placeholder.com/400/?text=CAT', NOW())
+               ", $p, false);
             return ["id"=>$c->lastInsertId()];
 
-         case 'insert_user':
-               $r = makeQuery($c,"SELECT id FROM 'users' WHERE 'username' = ? OR 'email' = ?",[ $p[0], $p[1] ]);
+         case 'insert_location':
+            makeQuery($c,"INSERT INTO 'locations' (`animal_id`,`lat`,`lng`,`description`,`img`,`date_create`) VALUES (?,?,?,?,'https://via.placeholder.com/400?text=Icon', NOW())",$p, false);
+            return ["id"=>$c->lastInsertId()];
 
-               if(count($r['result'])) return ['error'=>'Username or email already exists'];
-
-               $r = makeQuery($c,"INSERT INTO 'users' (`username`,`email`,`password`,`img`,`date_create`) VALUES (?,?, md5(?),'https://via.placeholder.com/400?text=User', NOW())",$p, false);
-               return ["id"=>$c->lastInsertId()];
+               case "insert_user":
+                  $r = makeQuery($c,"SELECT id FROM `users` WHERE `username`= ? OR `email` = ?", [ $p[0], $p[1] ]);
+                  if(count($r['result']))
+                     return ["error"=>"Username or Email already exists"];
+         
+                  makeQuery($c,"INSERT INTO
+                     `users`
+                     (`username`,`email`,`password`,`img`,`date_create`)
+                     VALUES
+                     (?, ?, md5(?), 'https://via.placeholder.com/400/?text=USER', NOW())
+                     ", $p, false);
+                  return ["id"=>$c->lastInsertId()];
 
                /* UPDATE */
-            case 'update_user':
-               $r = makeQuery($c,"UPDATE 'users' SET `name` = ?, `username` = ?, `email` = ? WHERE `id` = ?",$p, false);
-               if(isset($r['error'])) return $r;
-               return ['result'=>'Success'];
+               case "update_user":
+                  $r = makeQuery($c,"UPDATE
+                     `users`
+                     SET
+                        `name` = ?,
+                        `username` = ?,
+                        `email` = ?
+                     WHERE `id` = ?
+                     ",$p,false);
+                  if(isset($r['error'])) return $r;
+                  return ["result"=>"Success"];
             case 'update_password':
                   $r = makeQuery($c,"UPDATE 'users' SET `password` = md5(?) WHERE `id` = ?",$p, false);
                   if(isset($r['error'])) return $r;
                   return ['result'=>'Success'];
 
-            case 'update_cat':
-                     $r = makeQuery($c,"UPDATE 'animals' SET `name` = ?, `breed` = ?, `description` = ? WHERE `id` = ?",$p, false);
-                     if(isset($r['error'])) return $r;
-                     return ['result'=>'Success'];
+       
+      case "update_cat":
+         $r = makeQuery($c,"UPDATE
+            `animals`
+            SET
+               `name` = ?,
+               `breed` = ?,
+               `description` = ?
+            WHERE `id` = ?
+            ",$p,false);
+         if(isset($r['error'])) return $r;
+         return ["result"=>"Success"];
 
              case 'update_location':
                         $r = makeQuery($c,"UPDATE 'locations' SET `description` = ? WHERE `id` = ?",$p, false);
                         if(isset($r['error'])) return $r;
-                        return ['result'=>'Success'];         
+                        return ['result'=>'Success'];      
+                        
+         /* DELETE */
+
+      case "delete_cat":
+         $r = makeQuery($c,"DELETE FROM
+            `animals`
+            WHERE `id` = ?
+            ",$p,false);
+         if(isset($r['error'])) return $r;
+         return ["result"=>"Success"];
+
       default:
             return ["error"=>"no matched type"];
    }

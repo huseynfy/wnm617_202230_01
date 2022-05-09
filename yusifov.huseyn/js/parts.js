@@ -1,6 +1,9 @@
 const makeCatList = templater(o =>`
+<div class="catbox">
 <a href="#cat-profile-page" data-id=${o.id} class="js-cat-jump">
-<div class="catbox">${o.name}<br><a href="#cat-profile-page" data-id=${o.id} class="viewcatdetails js-cat-jump">View Details<img src="img/icons/arrow.svg" alt=""></a></div> </a>
+<img src="${o.img}" class="cat-list-page-image">
+</a>
+</div> 
 `);
 
 const makeUserProfilePage = o =>
@@ -36,25 +39,17 @@ const makeCatProfilePage = o =>
       <div class="text-center">
     <img src="${o.img}" alt="cat-picture" class="profile-image">
 </div>
-<form class="form" id="cat-form">
-    <div class="form-control"> 
-        <label for="cat-name" class="form-label">Name</label>
-        <input type="text" id="cat-name" data-role="none" class="form-input"
-        placeholder="${o.name}" disabled>
-    </div>
-    <div class="form-control">
-        <label for="cat-breed" class="form-label">Breed</label>
-       <select data-role="none" name="select" id="breed-selection" class="selection" disabled>
-           <option value="Anatolian">${o.breed}</option>
-       </select>
-    </div> 
-    <div class="form-control">
-        <label for="cat-info" class="form-label">Description</label>
-        <textarea name="cat-info" class="form-description" data-role="none" placeholder="${o.description}" disabled></textarea>
-    </div> 
-        <label for="cat-info" class="form-label">Locations</label>
+<div class="info-box-div">
+<h3 class="info-header-text">Cat Info</h3>
+<h4><span class="info-text-name">Name: </span>${o.name}</h4>
+<h4><span class="info-text-name">Breed: </span>${o.breed}</h4>
+<h4><span class="info-text-name">Description: </span>${o.description}</h4>
+<div class="flex-strecth"></div>
+
+    <label for="cat-info" class="form-label">Locations</label>
       <div class="cat-map"></div>
- </form>
+      </div>
+<div class="add-button"><a href="#choose-location-page">+</a></div>
 
  `
 
@@ -79,7 +74,7 @@ const makeCatProfilePage = o =>
  <div class="form-control"> 
      <label for="edit-cat-name" class="form-label">Name</label>
      <input type="text" id="edit-cat-name" data-role="none" class="form-input"
-     placeholder="${o.name}">
+     value="${o.name}">
  </div>
  <div class="form-control">
      <label for="edit-breed-selection" class="form-label">Breed</label>
@@ -92,13 +87,7 @@ const makeCatProfilePage = o =>
  </div> 
  <div class="form-control">
      <label for="edit-cat-info" class="form-label">Description</label>
-     <textarea name="edit-cat-info" class="form-description" data-role="none" placeholder="${o.description}"></textarea>
- </div> 
- <div class="form-control">
-     <label for="edit-cat-location" class="form-label">Locations</label>
-     <a href="#map-drop-pin-page">
-     <img src="img/map.png" class="location-map" alt="location-map">
- </a>
+     <textarea name="edit-cat-info" id="edit-cat-info" class="form-description" data-role="none">${o.description}</textarea>
  </div> 
  <div class="form-control">
  <button type="submit" class="form-button js-submit-animal-edit">Save</button>
@@ -128,17 +117,17 @@ const makeCatProfilePage = o =>
  <div class="form-control"> 
  <label for="edit-user-name" class="form-label">Name</label>
  <input type="text" id="edit-user-name" data-role="none" class="form-input"
- placeholder="${o.name}">
+ value="${o.name}">
 </div>
      <div class="form-control"> 
          <label for="edit-username" class="form-label">Username</label>
-         <input type="text" id="edit-user-name" data-role="none" class="form-input"
-         placeholder="${o.username}">
+         <input type="text" id="edit-username" data-role="none" class="form-input"
+         value="${o.username}">
      </div>
      <div class="form-control"> 
          <label for="edit-user-email" class="form-label">Email</label>
          <input type="email" id="edit-user-email" data-role="none" class="form-input"
-         placeholder="${o.email}">
+         value="${o.email}">
      </div>
      <div class="form-control"> 
      <button type="submit" class="form-button js-submit-user-edit">Save</button>
