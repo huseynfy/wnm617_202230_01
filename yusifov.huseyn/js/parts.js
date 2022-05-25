@@ -2,6 +2,9 @@ const makeCatList = templater(o =>`
 <div class="catbox">
 <a href="#cat-profile-page" data-id=${o.id} class="js-cat-jump">
 <img src="${o.img}" class="cat-list-page-image">
+<div class="text-center cat-box-name">
+<h5>${o.name}</h5>
+</div> 
 </a>
 </div> 
 `);
@@ -16,27 +19,12 @@ const makeUserProfilePage = o =>
 <h4><span class="info-text-name">Name: </span>${o.name}</h4>
 <h4><span class="info-text-name">Username: </span>${o.username}</h4>
 <h4><span class="info-text-name">Email: </span>${o.email}</h4>
-<div class="flex-strecth"></div>
-<div class="form-control">
-<a href="#" data-role="none" data-activate="#logout-modal" class="form-button">Log out</a>
 </div>
-</div>
- <div class="modal" id="logout-modal">
-    <div class="modal-back" data-deactivate="#logout-modal"></div>
-    <div class="modal-popup text-center">
-        <h3>Are you sure?</h3>
-        <div class="display-flex flex-justify-evenly">
-        <button class="no-button"><a href="#" data-role="none" data-deactivate="#logout-modal">No</a></button>
-        <button class="yes-button"><a href="#" data-role="none" class="js-logout">Yes</a></button>
-    </div>
-    </div>
- </div>
  `
 
 const makeCatProfilePage = o =>
-    `  
-    <h2 class="text-center">${o.name}'s Profile</h2>
-      <div class="text-center">
+    `<h2 class="text-center">${o.name}'s Profile</h2>
+    <div class="text-center">
     <img src="${o.img}" alt="cat-picture" class="profile-image">
 </div>
 <div class="info-box-div">
@@ -49,7 +37,7 @@ const makeCatProfilePage = o =>
     <label for="cat-info" class="form-label">Locations</label>
       <div class="cat-map"></div>
       </div>
-<div class="add-button"><a href="#choose-location-page">+</a></div>
+<div class="add-button js-location-choose-animal"><a href="#choose-location-page">+</a></div>
 
  `
 
@@ -57,19 +45,11 @@ const makeCatProfilePage = o =>
  `
  <h2 class="text-center">Start Editing</h2>
  <div class="text-center">
- <img src="${o.img}" alt="cat-picture" class="profile-image" data-activate="#photo-upload-modal">
- <a href="#" class="change-photo-text" data-activate="#photo-upload-modal">Change Photo</a>
+ <a href="#cat-edit-photo-page">
+ <img src="${o.img}" alt="cat-picture" class="profile-image">
+ </a>
+ <a href="#cat-edit-photo-page" class="change-photo-text">Change Photo</a>
 </div>
- <div class="modal" id="photo-upload-modal">
-     <div class="modal-back" data-deactivate="#photo-upload-modal"></div>
-     <div class="modal-popup text-center">
-         <h4 class="modal-head-text">Please Select a Method to Upload an Image</h4>
-         <div class="display-flex">
-         <button class="choose-gallery-button"><a href="#" data-role="none">Upload from Gallery</a></button>
-         <button class="camera-roll-button"><a href="#" data-role="none" class="">Take a Picture</a></button>
-     </div>
-     </div>
-  </div>
 <form class="form" id="cat-edit-form">
  <div class="form-control"> 
      <label for="edit-cat-name" class="form-label">Name</label>
@@ -100,19 +80,11 @@ const makeCatProfilePage = o =>
  `
  <h2 class="text-center">Edit Profile</h2>
  <div class="text-center">
-     <img src="${o.img}" alt="cat-picture" class="profile-image" data-activate="#user-photo-upload-modal">
-     <a href="#" class="change-photo-text" data-activate="#user-photo-upload-modal">Change Photo</a>
+ <a href="#user-edit-photo-page">
+     <img src="${o.img}" alt="user-picture" class="profile-image">
+     </a>
+     <a href="#user-edit-photo-page" class="change-photo-text">Change Photo</a>
  </div>
-     <div class="modal" id="user-photo-upload-modal">
-         <div class="modal-back" data-deactivate="#user-photo-upload-modal"></div>
-         <div class="modal-popup text-center">
-             <h4 class="modal-head-text">Please Select a Method to Upload an Image</h4>
-             <div class="display-flex">
-             <button class="choose-gallery-button"><a href="#" data-role="none">Upload from Gallery</a></button>
-             <button class="camera-roll-button"><a href="#" data-role="none" class="">Take a Picture</a></button>
-         </div>
-         </div>
-      </div>
  <form class="form" id="user-edit-form">
  <div class="form-control"> 
  <label for="edit-user-name" class="form-label">Name</label>
@@ -134,3 +106,45 @@ const makeCatProfilePage = o =>
      </div>
   </form>
  `
+
+ const makeAnimalListSet = (animals, target="#list-page .boxdiv") => {
+    $(".filter-bar").html(makeFilterList(animals));
+    $(target).html(makeCatList(animals));
+ }
+ 
+ const capitalize = s => (s[0]||"").toUpperCase()+s.slice(1);
+ 
+ const filterList = (animals,breed) => {
+    let a = [...(new Set(animals.map(o=>o[breed])))];
+    return templater(o=>o?`<span data-filter="${breed}" data-value="${o}">${capitalize(o)}</span>`:'')(a);
+ }
+ 
+ const makeFilterList = (animals) => {
+    return `
+    <span data-filter="breed" data-value="">All</span>
+    |
+    ${filterList(animals,'breed')}
+    `;
+ }
+
+ const SelectOptions = templater(o => `
+   <option value="${o.value}" ${o.selected?'selected':''}>${o.text}</option>
+`);
+const FormSelect = (options,namespace,name,value="") => {
+   return `
+   <div class="form-select">
+   <label for="cat-selection" class="form-label-selection">Select a cat</label>
+      <select id="${namespace}-${name}" data-role="none" class="selection-edit">
+         ${SelectOptions(options.map(o=>({
+            ...o,
+            ...(o.id==value && {selected: true})
+         })))}
+      </select>
+   </div>`;
+}
+const FormControlSelect = (options,namespace,name,displayname,value="") => {
+   return `<div class="form-control">
+      <label class="form-label" for="#${namespace}-${name}">${displayname}</label>
+      ${FormSelect(options,namespace,name,value)}
+   </div>`;
+}

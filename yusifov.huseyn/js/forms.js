@@ -2,17 +2,18 @@ const submitCatAdd = async () =>{
     let name = $('#add-cat-name').val();
     let breed = $('#add-breed-selection').val();
     let description = $('#add-cat-info').val();
+    let image = $("#animal-add-image-url").val();
+    console.log({name,breed,description,image});
 
-    console.log({name,breed,description});
-
-    if(name !='' && description !=''){
+    if(name !='' && description !='' && breed!=""){
     let {id,error} = await query({
         type: 'insert_cat',
-        params: [sessionStorage.userId,name,breed,description]
+        params: [sessionStorage.userId,name,breed,description,
+            image ==='' ? 'https://via.placeholder.com/400/?text=ANIMAL' : image]
     })
     if(error) throw(error);
     sessionStorage.catId = id;
-    history.go(-1);
+    $.mobile.navigate("#list-page")
     }else{
         throw('Not all data present')
     }
@@ -53,9 +54,22 @@ const submitUserEdit = async () =>{
         params: [name,username,email,sessionStorage.userId]
     })
     if(error) throw(error);
-    history.go(-1);
+    $.mobile.navigate("#user-profile-page")
 }
 
+const submitPasswordEdit = async () =>{
+    let password = $("#edit-user-password").val();
+    let confirmPassword = $("#user-confirm-password").val();
+
+    console.log({password,confirmPassword})
+    
+    let {result,error} = await query({
+        type: 'update_password',
+        params: [password,sessionStorage.userId]
+    })
+    if(error) throw(error);
+    $.mobile.navigate("#user-profile-page")
+}
 
 const submitCatEdit = async () =>{
     let name = $('#edit-cat-name').val();
@@ -96,6 +110,27 @@ const submitCatEdit = async () =>{
     });
  
     if(error) throw(error);
+    $.mobile.navigate("#recent-page")
+ }
+
+
+ const checkSearchForm = async (s) => {
+    let {result:animals,error} = await query({
+       type: 'search_animals',
+       params: [s, sessionStorage.userId]
+    });
  
-    history.go(-2);
+    if(error) throw(error);
+ 
+    makeAnimalListSet(animals);
+ }
+ const checkFilter = async (f,v) => {
+    let {result:animals,error} = await query({
+       type: 'filter_animals',
+       params: [f, v, sessionStorage.userId]
+    });
+ 
+    if(error) throw(error);
+ 
+    makeAnimalListSet(animals);
  }

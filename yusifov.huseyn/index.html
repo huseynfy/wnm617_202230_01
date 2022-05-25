@@ -7,23 +7,20 @@
     <meta name="author" content="Huseyn Yusifov">
     <meta name="keywords" description="Locat cat tracking application">
     <script src="lib/js/jquery-2.2.4.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="lib/css/jquery.mobile.structure-1.4.5.min.css"
-    />
+    <link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css" />
     <link rel="stylesheet" href="css/app.css" />
+    <link rel="shortcut icon" href="img/apple-touch.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/apple-touch.png">
     <script src="js/app.js"></script>
     <script src="js/signin.js" defer></script>
     <script src="js/functions.js"></script>
-    <script src="js/pages.js"></script>
+    <script src="js/pages.js" defer></script>
     <script src="js/parts.js"></script>
     <script src="js/forms.js"></script>
     <script src="js/maps.js"></script>
     <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiin_LThZpsM-XvH-DkNweXBuw0VsgPlY"
-      defer
-    ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiin_LThZpsM-XvH-DkNweXBuw0VsgPlY"
+    defer></script>
     <title>Locat</title>
   </head>
   <body>
@@ -31,7 +28,7 @@
       <div data-role="main" class="flex-column display-flex">
         <div class="flex-stretch"></div>
         <h2 class="welcome-text">
-          Locat was created for you to track your cats
+          Locat is created for you to track your cats
         </h2>
         <a data-role="none" class="welcome-button" href="#signin-page">Sign In</a>
       </div>
@@ -139,15 +136,19 @@
     </section>
     <section data-role="page" id="recent-page">
       <div data-role="main" class="map"></div>
-      <div class="add-button"><a href="#choose-location-page">+</a></div>
+      <div class="add-button"><a href="#choose-cat-page">+</a></div>
       <footer data-role="footer" data-template="#footer-template"></footer>
     </section>
     <section data-role="page" id="list-page">
+      <form data-ajax="false" id="list-search-form">
+      <input type="search" id="search" data-role="none" class="search-input"
+      placeholder="Search for cats">
+    </form>
+    <div class="filter-bar header flex-none"></div>
       <div data-role="main" class="overscroll">
-        <h2 class="text-center">List of Cats</h2>
-        <div class="display-flex flex-justify-between boxdiv">
-
-        </div>
+        <h2 class="text-center" id="list-of-cats-word">List of Cats</h2>
+        <h3 class="text-center" id="no-cat-message">Looks like you have not added any cats yet! Start adding by clicking the add button...</h3>
+        <div class="display-flex flex-justify-between boxdiv"></div>
         <div class="add-button"><a href="#addnew-page">+</a></div>
       </div>
       <footer data-role="footer" data-template="#footer-template"></footer>
@@ -175,18 +176,84 @@
       </header>
       <div data-role="main" class="overscroll"></div>
     </section>
+    
+   <section data-role="page" id="cat-edit-photo-page">
+    <header class="display-flex flex-justify-between header" data-role="none">
+      <a href="#" data-rel="back"
+      ><img src="img/icons/back.svg" class="back-icon" alt="back-icon"
+    /></a>
+    <a href="#" class="js-submit-animal-upload"><img src="img/icons/done.svg" class="edit-icon" alt="save-icon"></a>
+    </header>
+    <div data-role="main">
+       <input type="hidden" id="animal-edit-photo-image">
+       <label class="imagepicker replace">
+          <input type='file' id="animal-edit-photo-input" data-role="none">
+       </label>
+    </div>
+ </section>
 
+ <section data-role="page" id="user-edit-photo-page">
+  <header class="display-flex flex-justify-between header" data-role="none">
+    <a href="#" data-rel="back"
+    ><img src="img/icons/back.svg" class="back-icon" alt="back-icon"
+  /></a>
+  <a href="#" class="js-submit-user-upload"><img src="img/icons/done.svg" class="edit-icon" alt="save-icon"></a>
+  </header>
+  <div data-role="main">
+     <input type="hidden" id="user-edit-photo-image">
+     <label class="imagepicker replace">
+        <input type='file' id="user-edit-photo-input" data-role="none">
+     </label>
+  </div>
+</section>
+
+<section data-role="page" id="choose-cat-page">
+  <header class="display-flex flex-justify-between header" data-role="none">
+    <a href="#" data-rel="back"><img src="img/icons/back.svg" class="back-icon" alt="back-icon"/>
+    </a>
+  <a class="drop-pin-text" href="#choose-location-page">Next</a>
+  </header>
+  <div data-role="main" class="overscroll flex-column display-flex choose-cat-page-div">
+    <div class="form-control" id="choose-cat-input"></div>
+    <div class="flex-stretch"></div>
+    <div class="form-control">
+      <h4 class="text-center">If you want to create a new cat click the add new cat button</h4>
+    </div>
+    <div class="form-control">
+      <a href="#addnew-page" data-role="none" class="form-button">Add New Cat</a>
+      </div>
+  </div>
+</section>
     <section data-role="page" id="choose-location-page">
       <header class="display-flex flex-justify-between header" data-role="none">
-        <a href="#" data-role="none" data-rel="back"
-          ><img src="img/icons/back.svg" class="back-icon" alt="edit-icon"
-        /></a>
-        <h3 class="drop-pin-text">Drop a Pin</h3>
+        <a href="#" data-rel="back"
+        ><img src="img/icons/back.svg" class="back-icon" alt="back-icon"
+      /></a>
+      <a class="drop-pin-text" href="#choose-description-page">Next</a>
       </header>
       <div data-role="main">
+        <input type="hidden" id="location-animal">
+        <input type="hidden" id="location-start" value="-3">
         <input type="hidden" id="location-lat">
-        <input type="hidden" id="location-lng">
+         <input type="hidden" id="location-lng">
         <div class="map"></div>
+      </div>
+    </section>
+
+    <section data-role="page" id="choose-description-page">
+      <header class="display-flex flex-justify-between header" data-role="none">
+        <a href="#" data-rel="back"
+        ><img src="img/icons/back.svg" class="back-icon" alt="back-icon"
+      /></a>
+      <a href="#" class="js-submit-location-add"><img src="img/icons/done.svg" class="edit-icon" alt="save-icon"></a>
+      </header>
+      <div data-role="main">
+        <form class="form" id="location-desciption-form">
+          <div class="form-control">
+            <label for="location-description" class="form-label">Describe the Animal</label>
+            <textarea name="location-description" id="location-description" class="form-description" data-role="none"></textarea>
+          </div> 
+        </form>
       </div>
     </section>
 
@@ -207,11 +274,28 @@
         ><img src="img/icons/back.svg" class="back-icon" alt="back-icon"
       /></a>
       </header>
-      <div data-role="main" class="overscroll">
+      <div data-role="main" class="overscroll flex-column display-flex">
+        <div class="text-center">
+          <h1>User Settings</h1>
+        </div>
         <div class="info-box-div">
           <a href="#edit-profile-page">Edit User Info</a>
           <a href="#change-password-page">Change Password</a>
         </div>
+        <div class="flex-stretch"></div>
+        <div class="form-control">
+          <a href="#" data-role="none" data-activate="#logout-modal" class="form-button">Log out</a>
+          </div>
+        <div class="modal" id="logout-modal">
+          <div class="modal-back" data-deactivate="#logout-modal"></div>
+          <div class="modal-popup text-center">
+              <h3>Are you sure?</h3>
+              <div class="display-flex flex-justify-evenly">
+              <a href="#" class="no-button" data-role="none" data-deactivate="#logout-modal">No</a>
+              <a href="#" data-role="none" class="js-logout yes-button">Yes</a>
+          </div>
+          </div>
+       </div>
       </div>
     </section>
 
@@ -222,7 +306,7 @@
         /></a>
       </header>
       <h2 class="signuptext">Change Password</h2>
-      <div data-role="main" class="">
+      <div data-role="main">
         <form id="user-password-form" class="overscroll fill-parent display-flex flex-column" data-ajax="false">
           <div class="form-control">
             <label for="edit-user-password" class="form-label">New Password</label>
@@ -234,7 +318,7 @@
         </div> 
         <div class="flex-stretch"></div>
         <div class="form-control"> 
-          <button type="submit" class="form-button js-submit-user-edit">Save</button>
+          <button type="submit" class="form-button js-submit-password-edit">Save</button>
           </div>
         </form>
       </div>
@@ -257,32 +341,14 @@
         /></a>
       </header>
       <div data-role="main" class="overscroll">
-        <h2 class="text-center">Add New</h2>
-        <div class="text-center">
-          <img
-            src="img/icons/camera.svg"
-            alt="upload-icon"
-            class="upload-icon"
-            data-activate="#upload-cat-modal"
-          />
-        </div>
-        <div class="modal" id="upload-cat-modal">
-          <div class="modal-back" data-deactivate="#upload-cat-modal"></div>
-          <div class="modal-popup text-center">
-            <h4 class="modal-head-text">
-              Please Select a Method to Upload an Image
-            </h4>
-            <div class="display-flex">
-              <button class="choose-gallery-button">
-                <a href="#" data-role="none">Upload from Gallery</a>
-              </button>
-              <button class="camera-roll-button">
-                <a href="#" data-role="none">Take a Picture</a>
-              </button>
-            </div>
-          </div>
-        </div>
+        <h2 class="text-center">Add A New Cat</h2>
         <form class="form" id="add-cat-form">
+          <div class="text-center">
+            <input type="hidden" id="animal-add-image-url">
+            <label class="imagepicker imagepicker-replace thumbnail" id="animal-add-image-picker">
+               <input type='file' data-role="none">
+            </label>
+          </div>
           <div class="form-control">
             <label for="add-cat-name" class="form-label">Name</label>
             <input

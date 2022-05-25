@@ -1,10 +1,21 @@
+const noCatMessage = document.getElementById('no-cat-message');
+const listOfCats = document.getElementById('list-of-cats-word')
+
 const ListPage = async () => {
   let { result: cats } = await query({
     type: "cats_by_user_id",
     params: [sessionStorage.userId],
   });
-
+  console.log(cats)
+  if(cats.length > 0){
+    noCatMessage.style.display = 'none'
+    listOfCats.style.display = 'block';
+  }else{
+    noCatMessage.style.display = 'block'
+    listOfCats.style.display = 'none';
+  }
   $("#list-page .boxdiv").html(makeCatList(cats));
+  makeAnimalListSet(cats);
 };
 
 const UserProfilePage = async () => {
@@ -84,12 +95,11 @@ const RecentPage = async () => {
       m.addListener("click",function(e){
          let animal = valid_animals[i];
 
-         sessionStorage.animalId = animal.animal_id;
+         sessionStorage.catId = animal.animal_id;
          $.mobile.navigate("#cat-profile-page");
       })
 })
 }
-
 
 const ChooseLocationPage = async () => {
   let map_el = await makeMap("#choose-location-page .map");
@@ -100,4 +110,55 @@ const ChooseLocationPage = async () => {
      $("#location-lng").val(e.latLng.lng())
      makeMarkers(map_el,[e.latLng])
   })
+}
+
+const UserEditPhotoPage = async () => {
+  let {result:users} = await query({
+     type:'user_by_id',
+     params:[sessionStorage.userId]
+  })
+  let [user] = users;
+
+  $("#user-edit-photo-page .imagepicker").css({
+     "background-image":`url(${user.img})`
+  })
+}
+
+const AnimalEditPhotoPage = async () => {
+  let {result:animals} = await query({
+     type:'cat_by_id',
+     params:[sessionStorage.catId]
+  })
+  let [animal] = animals;
+
+  $("#animal-edit-photo-page .imagepicker").css({
+     "background-image":`url(${animal.img})`
+  })
+}
+
+const ChooseCatPage = async () => {
+  let {result:animals} = await query({
+     type:'cats_by_user_id',
+     params:[sessionStorage.userId]
+  });
+
+  $("#location-animal").val(animals[0]?.id);
+  $("#location-start").val(-3);
+
+  $("#choose-cat-input").html(FormSelect(
+     animals.map(o=>({value:o.id,text:o.name})),
+     'choose-cat',
+     'select',
+     'Choose Cat',
+     ''
+  ));
+}
+
+const CatAddPage = async() => {
+  let {result:animals} = await query({
+     type:'cat_by_id',
+     params:[sessionStorage.catId]
+  })
+  let [animal] = animals;
+
 }
