@@ -2,9 +2,9 @@
 
 ## Class Project Mobile Tech
 
-## Important Links
+## Portfolio Link
 
-- http://huseynfy-001-site5.btempurl.com/
+- http://huseynyusifov.com
 
 ## Class Project
 
